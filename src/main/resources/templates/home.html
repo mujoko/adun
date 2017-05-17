@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="frames/authenticated :: head(~{::title},~{::link},~{::script},_)">
+    <title>Aduan</title>
+    <link href="../static/css/location.css" th:href="@{/css/location.css}" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width">
+    <script src="../static/js/maps/location.js" th:src="@{/js/maps/location.js}" type="text/javascript"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEP_gPDG5-Dm3rb2Ksfy2BCsh5rAlHgd4&callback=setGoogleMapLoaded"></script>
+    
+</head>
+<body>
+<input type="text" id="last-address-search" placeholder="City, State or Zip Code" th:field="*{location.lastAddressSearch}">
+
+</body>
+</html>
