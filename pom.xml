@@ -2,12 +2,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
+  
   <groupId>com.asli.adun</groupId>
   <artifactId>adun-java</artifactId>
-  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Adun Parent</name>
+  <name>Adun </name>
   <url>http://maven.apache.org</url>
+  <packaging>war</packaging>
+  
+  
   <properties>
     <java.version>1.8</java.version>
     <mysql.version>5.1.41</mysql.version>
@@ -28,6 +31,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <repositories>
+  
+  
     <repository>
       <id>io.spring.repo.maven.release</id>
       <url>http://repo.spring.io/release/</url>
@@ -43,10 +48,14 @@
       </snapshots>
     </repository>
   </repositories>
-  <modules>
-    <module>app</module>
-  </modules>
   <build>
+      <finalName>adun-web</finalName>
+    <testResources>
+      <testResource>
+        <!-- Do not modify this, or else template resolution in test will fail -->
+        <directory>src/main/resources</directory>
+      </testResource>
+    </testResources>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -95,8 +104,64 @@
         </plugin>
       </plugins>
     </pluginManagement>
+
+
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring.boot.version}</version>
+        <configuration>
+          <addResources>true</addResources>
+          <jvmArguments>
+            -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+          </jvmArguments>
+        </configuration>
+        <executions>
+          <execution>
+            <id>generate-executable-war</id>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+            <configuration>
+              <classifier>exec</classifier>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.coderplus.maven.plugins</groupId>
+        <artifactId>copy-rename-maven-plugin</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <id>copy-file</id>
+            <phase>install</phase>
+            <goals>
+              <goal>rename</goal>
+            </goals>
+            <configuration>
+              <sourceFile>${project.build.directory}/${project.build.finalName}-exec.war</sourceFile>
+              <destinationFile>${project.build.directory}/${project.build.finalName}.jar</destinationFile>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+    </plugins>    
   </build>
-  <dependencyManagement>
+  
     <dependencies>
       <dependency>
         <!-- Import dependency management from Spring Boot -->
@@ -107,7 +172,11 @@
         <scope>import</scope>
       </dependency>
       <!-- Web -->
-      <!-- For some reason, spring doesn't respect thymeleaf.version -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>${spring.boot.version}</version>
+    </dependency>      
       <dependency>
         <groupId>org.thymeleaf</groupId>
         <artifactId>thymeleaf</artifactId>
@@ -161,17 +230,6 @@
             <artifactId>guava</artifactId>
           </exclusion>
         </exclusions>
-      </dependency>
-      <!-- DB Libraries -->
-      <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>${mysql.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.zaxxer</groupId>
-        <artifactId>HikariCP</artifactId>
-        <version>2.6.1</version>
       </dependency>
       <!-- Needed by Hibernate Validator. This library is assumed to exist in Servlet Container or server -->
       <dependency>
@@ -234,7 +292,6 @@
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>${h2.version}</version>
-        <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>junit</groupId>
@@ -261,5 +318,4 @@
         <scope>test</scope>
       </dependency>
     </dependencies>
-  </dependencyManagement>
 </project>
