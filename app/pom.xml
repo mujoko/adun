@@ -100,20 +100,10 @@
       <groupId>org.thymeleaf.extras</groupId>
       <artifactId>thymeleaf-extras-springsecurity4</artifactId>
     </dependency>
-    <!-- WYSWYG lib CK Editor -->
-    <dependency>
-      <groupId>com.ckeditor</groupId>
-      <artifactId>ckeditor-java-core</artifactId>
-      <version>3.5.3</version>
-    </dependency>
     <!-- DB Libraries -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.zaxxer</groupId>
-      <artifactId>HikariCP</artifactId>
     </dependency>
 		<!--WebJars-->
 		<dependency>
