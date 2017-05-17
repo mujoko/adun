@@ -18,7 +18,7 @@ $(document).ready(function() {
     if(!googleMapLoaded) {
       setTimeout(drawMap, 500);
     } else {
-      var california = {lat: 37.4419, lng: -122.1419};
+      var california = {lat: 3.1173760, lng: 101.6778460};
       var map = new google.maps.Map(document.getElementById('google-maps-container'), {
         center: california,
         zoom: 13
@@ -50,12 +50,14 @@ $(document).ready(function() {
         if(markerAnimation) {
           markerOptions.animation = markerAnimation;
         }
-        if(gender === 'MALE' || gender === 'FEMALE') {
+        if(gender === 'MALE' || gender === 'FEMALE'||gender === 'openet') {
           var image = {
             scaledSize: new google.maps.Size(25, 25)
           };
           if(gender === 'MALE') {
             image.url = baseUrl + '/images/boy.png';
+          } if(gender === 'openet') {
+              image.url = baseUrl + '/images/openet.png';
           } else {
             image.url = baseUrl + '/images/girl.png';
           }
