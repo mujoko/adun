@@ -1,0 +1,110 @@
+header {
+  padding-bottom: 26px;
+}
+
+header .topnav > a {
+  color: black;
+  font-size: 14px;
+}
+
+.reg-form-control {
+  display: inline-block;
+}
+
+.reg-form-control span {
+  font-size: 0.8em;
+  color: red;
+  display: table;
+  text-align: left;
+}
+
+#banner-text h1 {
+  text-align: center;
+  font-size: 86px;
+  padding-top: 10px;
+  margin-bottom: 0;
+  margin-top: 40px;
+}
+
+#banner-text h3 {
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 0;
+}
+
+input#submit {
+  height: 36px;
+  width: 260px;
+  margin-top: 20px;
+  border: 0;
+}
+
+#home-selection .prime {
+  width: 50%;
+  border-right: none;
+  height: auto;
+  margin-left: 0;
+  background: url(../images/prime_bg.png) no-repeat;
+  min-height: 390px;
+  background-size: 100% 100%;
+  border-bottom: 10px solid #fb4b4b
+}
+
+#home-selection div.row {
+  padding-top: 18%;
+  text-align: center;
+}
+
+#home-selection .lite {
+  width: 50%;
+  border-right: none;
+  height: auto;
+  margin-left: 0;
+  background: url(../images/lite_bg.png) no-repeat;
+  min-height: 390px;
+  background-size: 100% 100%;
+  border-bottom: 10px solid #4ef8ba
+}
+
+#home-final {
+  background: url(../images/white_bg.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+#home-final .record-voices,
+#home-final .send-songs {
+  border-right: none;
+  height: auto;
+  width: 32%;
+  margin-left: 0;
+  padding: 50px 10px 10px 10px;
+}
+
+#home-final .send-gifts {
+  border-right: none;
+  height: auto;
+  width: 30%;
+  margin-left: 0;
+  padding: 50px 10px 10px 10px;
+}
+
+#home-long {
+  background: url(../images/banner-2.png) no-repeat;
+  background-size: 100% 100%;
+  margin-top: 50px;
+  min-height: 335px;
+}
+
+#home-long h2 {
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+#home-long div {
+  color: white;
+}
