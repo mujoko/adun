@@ -21,7 +21,7 @@
     <thymeleaf.version>3.0.5.RELEASE</thymeleaf.version>
     <thymeleaf-layout-dialect.version>2.2.1</thymeleaf-layout-dialect.version>
     <!-- Version used by spring-boot -->
-    <jackson.version>2.8.7</jackson.version>
+    <jackson.version>2.9.6</jackson.version>
     <querydsl.version>4.1.4</querydsl.version>
     <guava.version>21.0</guava.version>
     <commons.lang.version>3.5</commons.lang.version>
